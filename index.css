@@ -1,23 +1,20 @@
 .quoteContent{
     position: fixed;
-    right: 50px;
+    background-color: rgb(251, 255, 211);
+    right: 125px;
+}
+
+#qContent{
+    display: block;
 }
 
 .mainContent{
     position: fixed;
     background-color:rgb(0, 255, 242);
-    left: 100px;
+    left: 40px;
     padding: 35px;
     border-radius: 25px;
-
-}
-
-div {
     text-align: center;
-}
-
-button {
-    margin-top: 15px;
 }
 
  #myImg {
@@ -25,10 +22,9 @@ button {
      margin: 0 auto;
  }
 
-body, html {
-    align-items: center;
-    margin: 0;
-        height: 100%;
-        display: flex;
-        justify-content: center;
+button {
+    margin-top: 15px;
 }
+
+
+
