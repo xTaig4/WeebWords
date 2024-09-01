@@ -13,3 +13,18 @@ function OnButtonClick() {
         IsAwake = false;
     } 
 }
+
+async function PostQuote() {
+    //Get the textarea element and its value to qText
+    var quoteText = document.getElementById("quoteText");
+    var qText = quoteText.value;
+
+    const reponse = await fetch('', {
+        method: 'POST',
+        body: myBody, //string or object
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    
+}
