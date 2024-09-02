@@ -16,8 +16,9 @@ function OnButtonClick() {
 
 async function PostQuote() {
     //Get the textarea element and its value to qText
-    var quoteText = document.getElementById("quoteText");
+    var quoteText = document.getElementById("quoteTextare");
     var qText = quoteText.value;
+    document.getElementById("quoteDisplay").innerText = qText;
 
     const reponse = await fetch('', {
         method: 'POST',

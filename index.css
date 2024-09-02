@@ -12,6 +12,11 @@ html {
     padding-top: 1px;
 }
 
+#quoteDisplay {
+    text-align: center;
+    padding-right: 140px;
+}
+
 #quoteHeader{
     position: relative;
     padding-top: 15px;
