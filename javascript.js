@@ -28,6 +28,16 @@ async function PostQuote() {
         headers: {
             'Content-Type': 'application/json'
         }
-    });
-    
+    });    
+}
+
+async function GetQuoteId() {
+    await fetch('http://localhost:7028/api/Quotes/1')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            document.getElementById("quoteDisplay").innerText = response.json();
+            return response.json(); // Parse the JSON from the response
+        })
 }
