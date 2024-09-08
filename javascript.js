@@ -32,12 +32,26 @@ async function PostQuote() {
 }
 
 async function GetQuoteId() {
-    await fetch('http://localhost:7028/api/Quotes/1')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            document.getElementById("quoteDisplay").innerText = response.json();
-            return response.json(); // Parse the JSON from the response
-        })
+    if (IsAwake == false) {
+        await fetch('https://localhost:7028/api/Quotes/1')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+            
+                return response.json(); // Parse the JSON from the response
+            })
+            .then(data => {
+                document.getElementById("myImg").src = data.image;
+                document.getElementById("quoteDisplay").innerText = data._Quote;
+            })
+        IsAwake = true;
+    }
+    else {
+        document.getElementById("myHeader").innerText = 'Wake up. . .';
+        document.getElementById("myImg").src = "https://i.pinimg.com/564x/84/dd/07/84dd070d4d13eda6523a2731bacfa9fd.jpg";
+        document.getElementById("quoteDisplay").innerText = 'Wake up to reality, nothing ever goes as planned'
+        IsAwake = false;
+    }
+
 }
