@@ -6,10 +6,54 @@ let IsAwake = false;
 const root = ReactDom.createRoot(document.getElementById("root"));
 
 root.render(
-    <h2 id="myHeader">Welcome to my quote collection page</h2>,
-    <img id="myImg" width="450" src="https://i.pinimg.com/736x/6c/f6/62/6cf662ab5632f2df41e84e5d5144d2d9.jpg" alt=''></img>,
-    document.getElementById("root")
+    <div>
+        <title>The Honered One</title>
+
+        <h2 id="myHeader">Welcome to my quote collection page</h2>,
+        <img id="myImg" width="450" src="https://i.pinimg.com/736x/6c/f6/62/6cf662ab5632f2df41e84e5d5144d2d9.jpg" alt="alt text"></img>,
+        <pre id="quoteDisplay" style={{ width: '400px', height:'auto' }}>
+            Quote text for display
+            testing testint testing testint
+            testing testinttesting testint
+        </pre>
+        <button style={{ width: '444px', height: '44px' }} onClick={GetQuoteId}>Click me!</button>
+
+        <h2 id="quoteHeader">Quote</h2>
+        <textarea id="quoteTextare" placeholder="Enter quote. . ."></textarea>
+        <button style={{ width: "auto", height: "25px" }}>Submit</button>
+
+        
+    </div>
 );
+
+
+
+async function GetQuoteId() {
+    if (IsAwake === false) {
+        await fetch('https://localhost:7028/api/Quotes/1')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+            
+                return response.json(); // Parse the JSON from the response
+            })
+            .then(data => {
+                const imgElement = /** @type {HTMLImageElement} */ (document.getElementById("myImg"));
+                imgElement.src = data.image;
+                document.getElementById("quoteDisplay").innerText = data._Quote;
+            })
+        IsAwake = true;
+    }
+    else {
+        document.getElementById("myHeader").innerText = 'Wake up. . .';
+        const imgElement = /** @type {HTMLImageElement} */ (document.getElementById("myImg"));
+        imgElement.src = "https://i.pinimg.com/564x/84/dd/07/84dd070d4d13eda6523a2731bacfa9fd.jpg";
+        document.getElementById("quoteDisplay").innerText = 'Wake up to reality, nothing ever goes as planned'
+        IsAwake = false;
+    }
+
+}
 
 // async function PostQuote() {
 //     //Get the textarea element and its value to qText
@@ -23,30 +67,5 @@ root.render(
 //         headers: {
 //             'Content-Type': 'application/json'
 //         }
-//     });    
+//     });
 // }
-
-async function GetQuoteId() {
-    if (IsAwake === false) {
-        await fetch('https://localhost:7028/api/Quotes/1')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-            
-                return response.json(); // Parse the JSON from the response
-            })
-            .then(data => {
-                document.getElementById("myImg").src = data.image;
-                document.getElementById("quoteDisplay").innerText = data._Quote;
-            })
-        IsAwake = true;
-    }
-    else {
-        document.getElementById("myHeader").innerText = 'Wake up. . .';
-        document.getElementById("myImg").src = "https://i.pinimg.com/564x/84/dd/07/84dd070d4d13eda6523a2731bacfa9fd.jpg";
-        document.getElementById("quoteDisplay").innerText = 'Wake up to reality, nothing ever goes as planned'
-        IsAwake = false;
-    }
-
-}
