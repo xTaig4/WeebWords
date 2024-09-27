@@ -7,67 +7,91 @@ let IsAwake = false;
 const root = ReactDom.createRoot(document.getElementById("root")!);
 
 root.render(
+    <body style={{
+        display: 'flex',
+        justifyContent: 'center',
+        boxSizing: 'border-box',
+        background: '#222',
+        transform: 'translate(-15px, -10px)',
+        width: '1900px',
+        height: '930px'
+    }}>
     <div>
         <title>The Honered One</title>
-        <h2 id="myHeader">Welcome to my quote collection page</h2>,
-
-        <section
-            style={{
-                display: 'block',  // Ensures the image takes up the full width of its parent
-                margin: 'auto',    // Centers the image horizontally
-                width: '400px',     // Optional: set a specific width if needed
-                transform: 'translateX(10px)',
-                position: 'fixed'
-            }}>
-            <div>
-              <img id="myImg"
-                    width={'400px'}
-                    src="https://i.pinimg.com/736x/6c/f6/62/6cf662ab5632f2df41e84e5d5144d2d9.jpg"
-                    alt="alt text"
-                    style={{
-                        transform: 'translateX(50px)'
-                    }}
-                ></img>,
-            </div>
-        
-               <pre id="quoteDisplay"
-               style={{
-                    width: '500px', height: 'auto', 
-                    whiteSpace: 'pre-wrap',
-                    wordWrap: 'break-word',
-                    textAlign: 'center'
-               }}>
-                    Quote text for display <br></br>
-                    I just have to win. . . right, Izuku?
-              </pre>
-        
-                <button
-                    style={{ width: '444px', height: '44px', transform: 'translateX(30px)' }}
-                    onClick={GetRandomQuote}>
-                        Random quote!
-                </button>
-        </section>
-        <section
-            style={{
-                display: 'grid',  // Ensures the image takes up the full width of its parent
-                // margin: 'auto',    // Centers the image horizontally
-                // width: '400px',     // Optional: set a specific width if needed
-                transform: 'translateX(550px)',
-                position: 'fixed'
-            }}>
-            <h2 id="quoteHeader">Quote</h2>
-            <textarea id="quoteTextare" placeholder="Enter quote. . ."></textarea>
-            <button style={{ width: "auto", height: "25px" }}>
-                Submit
-            </button>
-            <iframe 
-                width="300" 
-                height="auto" 
-                src="https://www.youtube.com/embed/b7DqwytIjB4" 
-        ></iframe>
-        </section>
-    </div>
+            <h2 id="myHeader" style={{ color: 'white' }}>Welcome to my quote collection page</h2>,
+        <RandomQuoteSection />
+        <PostQuoteSection />
+        </div>
+    </body>
 );
+
+function RandomQuoteSection() {
+    return <section
+        style={{
+            display: 'block',  // Ensures the image takes up the full width of its parent
+            margin: 'auto',    // Centers the image horizontally
+            width: '400px',     // Optional: set a specific width if needed
+            transform: 'translate(-60px, 15px)',
+            position: 'fixed'            
+        }}>
+        <div>
+            <div className='container' style={{
+                width: '450px',
+                height: 'auto',
+                background: 'rgba(90,90,90,1)',
+                transform: 'translate(25px, -25px)',
+                borderRadius: '25px'
+            }}>
+            <img id="myImg"
+                width={'400px'}
+                src="https://i.pinimg.com/736x/6c/f6/62/6cf662ab5632f2df41e84e5d5144d2d9.jpg"
+                alt="alt text"
+                style={{
+                    transform: 'translate(25px, 2px)'
+                }}
+            ></img>,
+        </div>
+
+        <pre id="quoteDisplay"
+            style={{
+                width: '500px', height: 'auto',
+                whiteSpace: 'pre-wrap',
+                wordWrap: 'break-word',
+                textAlign: 'center',
+                color: 'white',
+                transform: 'translateY(-25px)'
+            }}>
+            Quote text for display <br></br>
+            I just have to win. . . right, Izuku?
+        </pre>
+        </div>
+        <button
+            style={{ width: '444px', height: '44px', transform: 'translate(30px, -20px)' }}
+            onClick={GetRandomQuote}>
+            Random quote!
+        </button>
+    </section>
+}
+
+function PostQuoteSection() {
+    return <section
+        style={{
+            display: 'grid',  // Ensures the image takes up the full width of its parent
+            transform: 'translateX(550px)',
+            position: 'fixed'
+        }}>
+        <h2 id="quoteHeader" style={{ color: 'white' }}>Quote</h2>
+        <textarea id="quoteTextare" style={{ height: "100px" }} placeholder="Enter quote. . ."></textarea>
+        <button style={{ width: "auto", height: "25px" }}>
+            Submit
+        </button>
+        <iframe
+            width="300"
+            height="auto"
+            src="https://www.youtube.com/embed/b7DqwytIjB4"
+        ></iframe>
+    </section>
+}
 
 async function GetRandomQuote() {
     await fetch('https://localhost:7028/api/Quotes/Random/QuoteDTO')
