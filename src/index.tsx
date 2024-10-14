@@ -18,22 +18,22 @@ root.render(
     }}>
     <div>
         <title>The Honered One</title>
-            <h2 id="myHeader" style={{ color: 'white' }}>Welcome to my quote collection page</h2>,
-        <RandomQuoteSection />
-        <PostQuoteSection />
+        <SectionRandomQuote />
+        <SectionPostQuote />
         </div>
     </body>
 );
 
-function RandomQuoteSection() {
+function SectionRandomQuote() {
     return <section
         style={{
-            display: 'block',  // Ensures the image takes up the full width of its parent
+            display: 'grid',  // Ensures the image takes up the full width of its parent
             margin: 'auto',    // Centers the image horizontally
             width: '400px',     // Optional: set a specific width if needed
-            transform: 'translate(-60px, 15px)',
+            transform: 'translate(-600px, 15px)',
             position: 'fixed'            
         }}>
+        <h2 id="myHeader" style={{ color: 'white', transform: 'translateX(55px)' }}>Welcome to my quote collection page</h2>,
         <div>
             <div className='container' style={{
                 width: '450px',
@@ -73,11 +73,11 @@ function RandomQuoteSection() {
     </section>
 }
 
-function PostQuoteSection() {
+function SectionPostQuote() {
     return <section
         style={{
             display: 'grid',  // Ensures the image takes up the full width of its parent
-            transform: 'translateX(550px)',
+            transform: 'translate(-90px,55px)',
             position: 'fixed'
         }}>
         <h2 id="quoteHeader" style={{ color: 'white' }}>Quote</h2>
@@ -94,19 +94,24 @@ function PostQuoteSection() {
 }
 
 async function GetRandomQuote() {
-    await fetch('https://localhost:7028/api/Quotes/Random/QuoteDTO')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            return response.json(); // Parse the JSON from the response
-        })
-        .then(data => {
-            const imgElement = document.getElementById("myImg")! as HTMLImageElement;
-            imgElement.src = data.image;
-            document.getElementById("quoteDisplay")!.innerText = data._Quote;
-        })
+    try {
+        await fetch('https://localhost:7028/api/Quotes/Random/QuoteDTO')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');  
+                }
+                return response.json(); // Parse the JSON from the response 
+            })
+            .then(data => {
+                const imgElement = document.getElementById("myImg")! as HTMLImageElement;
+                imgElement.src = data.image;
+                document.getElementById("quoteDisplay")!.innerText = data._Quote;
+            })    
+    } catch (error) {
+        const imgElement = document.getElementById("myImg")! as HTMLImageElement;
+        imgElement.src = "https://i.pinimg.com/564x/81/5b/55/815b55146b9ff6555986bad7b9bc00d6.jpg"
+        document.getElementById("quoteDisplay")!.innerText = "I'll never go back on my Word. That's my Nindo: my ninja way!!";
+    }
 }
 
 async function PostQuote(newQuote: { firstName: string, lastName: string, _Quote: string, image: string }) {
@@ -135,44 +140,3 @@ async function PostQuote(newQuote: { firstName: string, lastName: string, _Quote
 
 
 
-async function GetQuoteId() {
-    if (IsAwake === false) {
-        await fetch('https://localhost:7028/api/Quotes/1')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                return response.json(); // Parse the JSON from the response
-            })
-            .then(data => {
-                const imgElement = document.getElementById("myImg")! as HTMLImageElement;
-                imgElement.src = data.image;
-                document.getElementById("quoteDisplay")!.innerText = data._Quote;
-            })
-        IsAwake = true;
-    }
-    else {
-        document.getElementById("myHeader")!.innerText = 'Wake up. . .';
-        const imgElement = document.getElementById("myImg") as HTMLImageElement;
-        imgElement!.src = "https://i.pinimg.com/564x/84/dd/07/84dd070d4d13eda6523a2731bacfa9fd.jpg";
-        document.getElementById("quoteDisplay")!.innerText = 'Wake up to reality, nothing ever goes as planned'
-        IsAwake = false;
-    }
-
-}
-
-// async function PostQuote() {
-//     //Get the textarea element and its value to qText
-//     var quoteText = document.getElementById("quoteTextare");
-//     var qText = quoteText.value;
-//     document.getElementById("quoteDisplay").innerText = qText;
-
-//     const reponse = await fetch('', {
-//         method: 'POST',
-//         body: myBody, //string or object
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-// }
