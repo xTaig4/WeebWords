@@ -1,3 +1,9 @@
+body {
+    background-color: #222;
+    color: #ffffff;
+
+}
+
 .column-container{
     display: flex;
         flex-wrap: wrap;
@@ -22,8 +28,15 @@
 #quote {
     font-size: 1.5em;
     font-style: normal;
-    color: #333;
     margin-bottom: 20px;
+    
+    color: white;
+    width: 400px;
+    height: auto;
+    
+    white-space:  pre-wrap;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .random-button{

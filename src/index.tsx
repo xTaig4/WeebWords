@@ -14,13 +14,11 @@ root.render(
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        boxSizing: 'border-box',
-        backgroundColor: '#222', height: '100vh', minWidth: '50vh',
+        boxSizing: 'border-box'
     }}>
         <div>
             <title>The Honered One</title>
             <RandomQuoteSection/>
-            {/* <SectionPostQuote /> */}
             <Router>
                 <div>
                     {/* Navigation Links */}
@@ -39,27 +37,15 @@ root.render(
 );
 
 
-function FunctionComponent(props: string) {
-    return (< h1 > hello { props }</h1 >);
-
-}
 
 function RandomQuoteSection() {
     return <section>
         <div className='column-container'>
             <div className='left-column' >
-                <pre id="quote"
-                    style={{
-                        width: '400px', height: 'auto',
-                        whiteSpace: 'pre-wrap',
-                        wordWrap: 'break-word',
-                        textAlign: 'center',
-                        color: 'white',
-                        }}>
+                <pre id="quote">
                             Quote text for display <br></br>
                             I just have to win. . . right, Izuku?
                 </pre>
-                <h1> </h1>
                 <button className='random-button' style={{ width: '400px', height: '44px' }} onClick={GetRandomQuote}> Random quote! </button>
             </div>
 
@@ -76,28 +62,6 @@ function RandomQuoteSection() {
     </section>
 }
 
-
-function SectionPostQuote() {
-    return <section className='column'
-        style={{
-            // flex: 1,
-            minWidth: '150px',
-            maxWidth: '1000px',
-            // flexWrap: 'wrap',
-            display: 'grid',  // Ensures the image takes up the full width of its parent
-        }}>
-            <h2 id="quoteHeader" style={{ color: 'white' }}>Quote</h2>
-            <textarea id="quoteTextare" style={{ height: "500px" }} placeholder="Enter quote. . ."></textarea>
-            <button style={{ width: "auto", height: "25px" }}>
-                Submit
-            </button>
-            <iframe
-                width="1000"
-                height="500"
-                src="https://www.youtube.com/embed/b7DqwytIjB4">
-            </iframe>
-    </section>
-}
 
 async function GetRandomQuote() {
     try {
