@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDom from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import SubmitQuote from './SubmitQuote'
+import MenuBar from "./components/MenuBar"
 import './index.css'
 
 let IsAwake = false;
@@ -16,22 +17,21 @@ root.render(
         justifyContent: 'center',
         boxSizing: 'border-box'
     }}>
+        <Router>
+            <MenuBar />
+            <div style={{ marginTop: "00px" }}>
+                {/* Add your routes and components */}
+                <Routes>
+                    {/* <Route path="/" element={<div>Home Page</div>} />
+                    <Route path="/about" element={<div>About Page</div>} />
+                    <Route path="/services" element={<div>Services Page</div>} />
+                    <Route path="/contact" element={<div>Contact Page</div>} /> */}
+                </Routes>
+            </div>
+        </Router>
         <div>
             <title>The Honered One</title>
             <QuoteComponent/>
-            <Router>
-                <div>
-                    {/* Navigation Links */}
-                    <nav style={{ textAlign: 'center', margin: '20px' }}>
-                        <Link to="/about">About</Link>
-                    </nav>
-
-                    {/* Define Routes */}
-                    <Routes>
-                        <Route path="/about" element={<SubmitQuote />} /> {/* About Page */}
-                    </Routes>
-                </div>
-            </Router>
         </div>
     </div>
 );
