@@ -1,7 +1,7 @@
 body {
     background-color: #222;
     color: #ffffff;
-
+    background-size: 100vw 100vh;
 }
 
 .column-container{

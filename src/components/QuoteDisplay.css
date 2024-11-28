@@ -1,0 +1,78 @@
+.column-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 20px;
+    /* Adds space between columns */
+}
+
+.left-column {
+    flex: 1;
+    min-width: 250px;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+#quote {
+    font-size: 1.5em;
+    font-style: normal;
+    margin-bottom: 20px;
+
+    color: white;
+    max-width: 600px;
+    height: auto;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    transition: all 3s;
+}
+
+.random-button {
+    font-size: 1em;
+    color: #000000;
+    background-color: #e9f4ff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 400px;
+    height: 44px;
+
+}
+
+.right-column {
+    flex: 1;
+    min-width: 250px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer {
+    border-radius: 25px;
+    overflow: hidden;
+    /* Hides any overflow if the image is too big */
+    max-width: 800px;
+    /*Scales the image down to fit within the container */
+    max-height: 800px;
+    /* Ensures the image doesn’t overflow the container vertically */
+}
+
+#myImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /* Adjusts the container height, full viewport in this case */
+    object-fit: contain;
+    /*Keeps the aspect ratio while fitting the container */
+
+}

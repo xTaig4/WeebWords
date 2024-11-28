@@ -1,9 +1,8 @@
-import { wrap } from 'module';
 import React from 'react';
 import ReactDom from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import SubmitQuote from './SubmitQuote'
-import MenuBar from "./components/MenuBar"
+import MenuBar from "./components/NavigationBar"
+import QuoteDisplay from './components/QuoteDisplay';
 import './index.css'
 
 let IsAwake = false;
@@ -17,6 +16,7 @@ root.render(
         justifyContent: 'center',
         boxSizing: 'border-box'
     }}>
+        <React.StrictMode>
         <Router>
             <MenuBar />
             <div style={{ marginTop: "00px" }}>
@@ -31,8 +31,9 @@ root.render(
         </Router>
         <div>
             <title>The Honered One</title>
-            <QuoteComponent/>
-        </div>
+            <QuoteDisplay/>
+            </div>
+        </React.StrictMode>
     </div>
 );
 

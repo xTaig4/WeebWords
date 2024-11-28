@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Optional if you are using React Router for navigation
-import "./MenuBar.css"; // Import the CSS file for styling
+import "./NavigationBar.css"; // Import the CSS file for styling
 
-const MenuBar: React.FC = () => {
+const NavigationBar: React.FC = () => {
     return (
-        <div className="menu-bar">
-            <div className="menu-logo">
+        <div className="navigation-bar">
+            <div className="navigation-logo">
                 <h1>MyApp</h1>
             </div>
-            <div className="menu-links">
+            <div className="navigation-links">
                 {/* Replace Link with <a> if you're not using React Router */}
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
@@ -19,4 +19,27 @@ const MenuBar: React.FC = () => {
     );
 };
 
-export default MenuBar;
+export default NavigationBar;
+
+// import React from "react";
+// import { Link } from "react-router-dom"; // Optional if you are using React Router for navigation
+// import "./MenuBar.css"; // Import the CSS file for styling
+
+// const MenuBar: React.FC = () => {
+//     return (
+//         <div className="menu-bar">
+//             <div className="menu-logo">
+//                 <h1>MyApp</h1>
+//             </div>
+//             <div className="menu-links">
+//                 {/* Replace Link with <a> if you're not using React Router */}
+//                 <Link to="/">Home</Link>
+//                 <Link to="/about">About</Link>
+//                 <Link to="/services">Services</Link>
+//                 <Link to="/contact">Contact</Link>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default MenuBar;
