@@ -1,8 +1,6 @@
 import React from "react";
 import "./QuoteDisplay.css";
 
-
-
 const QuoteDisplay: React.FC = () => {
     return (
         <section>

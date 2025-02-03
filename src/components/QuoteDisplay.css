@@ -10,6 +10,15 @@
     /* Adds space between columns */
 }
 
+.right-column {
+    flex: 1;
+    min-width: 250px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .left-column {
     flex: 1;
     min-width: 250px;
@@ -41,18 +50,9 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 400px;
+    width: 100%;
+    max-width: 350px;
     height: 44px;
-
-}
-
-.right-column {
-    flex: 1;
-    min-width: 250px;
-    max-width: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .imgContainer {

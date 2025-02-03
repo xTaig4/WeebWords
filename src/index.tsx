@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import MenuBar from "./components/NavigationBar"
+import NavigationBar from "./components/NavigationBar"
 import QuoteDisplay from './components/QuoteDisplay';
+import SubmitQuote from './components/SubmitQuote';
 import './index.css'
 
 let IsAwake = false;
@@ -17,22 +18,26 @@ root.render(
         boxSizing: 'border-box'
     }}>
         <React.StrictMode>
-        <Router>
-            <MenuBar />
-            <div style={{ marginTop: "00px" }}>
-                {/* Add your routes and components */}
-                <Routes>
-                    {/* <Route path="/" element={<div>Home Page</div>} />
-                    <Route path="/about" element={<div>About Page</div>} />
-                    <Route path="/services" element={<div>Services Page</div>} />
-                    <Route path="/contact" element={<div>Contact Page</div>} /> */}
-                </Routes>
-            </div>
-        </Router>
-        <div>
+
             <title>The Honered One</title>
-            <QuoteDisplay/>
-            </div>
+
+            <Router>   
+                <NavigationBar />
+                <div style={{ marginTop: "00px" }}>
+                    {/* Add your routes and components */}
+                    <Routes>
+                        <Route path="/" element={<QuoteDisplay />} />
+                        <Route path="/submit" element={<SubmitQuote/>} />
+                        <Route path="/services" element={<div>Services Page</div>} />
+                        <Route path="/contact" element={<div>Contact Page</div>} />
+                    </Routes>
+                </div>
+            </Router>
+            
+            {/* <QuoteDisplay /> */}
+
+            {/* <div style={{ width: "auto", height: "1080px", backgroundColor: "aqua" }}> test test </div> */}
+
         </React.StrictMode>
     </div>
 );

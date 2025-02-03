@@ -1,6 +1,6 @@
 .navigation-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     /* Element size  */
     min-width: 30%;
     width: 93%;
@@ -27,6 +27,7 @@
 .navigation-links {
     display: flex;
     gap: 20px;
+    padding-left: 35px;
 }
 
 .navigation-links a {
