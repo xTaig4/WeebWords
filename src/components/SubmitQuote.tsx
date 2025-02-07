@@ -1,32 +1,57 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState } from "react";
 import './SubmitQuote.css';
 
 const Submit: React.FC = () => {
+    const [file, setFile] = useState<File | null>(null);
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files && event.target.files[0]) {
+            const selectedFile = event.target.files[0];
+            setFile(selectedFile);
+
+            // Create a preview URL for images
+            const fileReader = new FileReader();
+            fileReader.onload = () => {
+                setPreviewUrl(fileReader.result as string);
+            };
+            fileReader.readAsDataURL(selectedFile);
+        }
+    };
+    
     return (
-        <div>
-            <SectionPostQuote/>
+        <div className='column-container'>      
+            <div className='left-column'>
+                {previewUrl && (
+                    <div>
+                        <h3>Image:</h3>
+                        {file?.type.startsWith("image/") ? (
+                            <img src={previewUrl} alt="Uploaded" style={{ maxWidth: "100%" }} />
+                        ) : (
+                            <p>File uploaded: {file?.name}</p>
+                        )}
+                    </div>
+                )}
+                <input
+                    type="file"
+                    id="fileInput"
+                    onChange={handleFileChange}
+                    accept="image/*"
+                />
+            </div>
+
+            <div className='right-column'>
+                <h3 id="quoteHeader" style={{ color: 'white' }}>Quote</h3>
+                <textarea className="input-quote" placeholder="Enter quote. . ."></textarea>
+                <button>
+                    Submit
+                </button>
+            </div>
         </div>
     )
 }
 
-function SectionPostQuote() {
-    return <div className='column-container'>
-        <div className='left-column'>
-            <h2 id="quoteHeader" style={{ color: 'white' }}>Quote</h2>
-            <input type="text" className="quote-text"></input>
-            {/* <textarea id="quoteTextare" style={{ height: "500px" }} placeholder="Enter quote. . ."></textarea> */}
-            <button>
-                Submit
-            </button>
-        </div>
-        <div className='right-column'>
-            <iframe
-                height="500"
-                src="https://www.youtube.com/embed/b7DqwytIjB4">
-            </iframe>
-        </div>
-    </div>
-}
 
 async function PostQuote(newQuote: { firstName: string, lastName: string, _Quote: string, image: string }) {
     await fetch('https://localhost:7028/api/Quote', {
