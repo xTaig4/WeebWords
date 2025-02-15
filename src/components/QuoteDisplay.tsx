@@ -3,27 +3,29 @@ import "./QuoteDisplay.css";
 
 const QuoteDisplay: React.FC = () => {
     return (
-        <section>
-            <div className='column-container'>
-                <div className='left-column' >
-                    <pre id="quote">
-                        Quote text for display  <br></br>
-                        I just have to win. . . right, Izuku?
-                    </pre>
-                    <button className='random-button' onClick={GetRandomQuote}> Random quote! </button>
-                </div>
-
-                <div className='right-column'>
-                    <div className='imgContainer'>
-                        <img id='myImg'
-                            src='https://i.pinimg.com/736x/6c/f6/62/6cf662ab5632f2df41e84e5d5144d2d9.jpg'
-                            alt="alt text"
-                        ></img>
+        <html className="quote-page">
+            <body className="QuoteDisplay">
+                <div className='quote-container'>
+                    <div className='quote-left-column' >
+                        <pre id="quote">
+                            Quote text for display  <br></br>
+                            I just have to win. . . right, Izuku?
+                        </pre>
+                        <button className='random-button' onClick={GetRandomQuote}> Random quote! </button>
                     </div>
 
+                    <div className='quote-right-column'>
+                        <div className='quote-img-Container'>
+                            <img id='myImg'
+                                src='https://i.pinimg.com/736x/6c/f6/62/6cf662ab5632f2df41e84e5d5144d2d9.jpg'
+                                alt="alt text"
+                            ></img>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-        </section>
+            </body>
+        </html>
     );
 }
 

@@ -12,7 +12,7 @@ const NavigationBar: React.FC = () => {
                 {/* Replace Link with <a> if you're not using React Router */}
                 <Link to="/">Home</Link>
                 <Link to="/submit">Submit</Link>
-                <Link to="/services">Services</Link>
+                <Link to="/settings">Settings</Link>
                 <Link to="/about">About</Link>
             </div>
         </div>

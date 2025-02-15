@@ -4,40 +4,26 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import NavigationBar from "./components/NavigationBar"
 import QuoteDisplay from './components/QuoteDisplay';
 import SubmitQuote from './components/SubmitQuote';
-import './index.css'
-
-let IsAwake = false;
+import Settings from './components/Settings';
+import './index.css';
 
 const root = ReactDom.createRoot(document.getElementById("root")!);
 
 root.render(
-    <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        boxSizing: 'border-box'
-    }}>
+    <div>
         <React.StrictMode>
-
             <title>The Honered One</title>
-
             <Router>   
                 <NavigationBar />
-                <div style={{ marginTop: "00px" }}>
-                    {/* Add your routes and components */}
+                <div>
                     <Routes>
                         <Route path="/" element={<QuoteDisplay />} />
                         <Route path="/submit" element={<SubmitQuote/>} />
-                        <Route path="/services" element={<div>Services Page</div>} />
+                        <Route path="/settings" element={<Settings/>} />
                         <Route path="/contact" element={<div>Contact Page</div>} />
                     </Routes>
                 </div>
             </Router>
-            
-            {/* <QuoteDisplay /> */}
-
-            {/* <div style={{ width: "auto", height: "1080px", backgroundColor: "aqua" }}> test test </div> */}
-
         </React.StrictMode>
     </div>
 );

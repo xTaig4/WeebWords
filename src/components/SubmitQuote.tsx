@@ -19,36 +19,41 @@ const Submit: React.FC = () => {
             fileReader.readAsDataURL(selectedFile);
         }
     };
-    
-    return (
-        <div className='column-container'>      
-            <div className='left-column'>
-                {previewUrl && (
-                    <div>
-                        <h3>Image:</h3>
-                        {file?.type.startsWith("image/") ? (
-                            <img src={previewUrl} alt="Uploaded" style={{ maxWidth: "100%" }} />
-                        ) : (
-                            <p>File uploaded: {file?.name}</p>
-                        )}
-                    </div>
-                )}
-                <input
-                    type="file"
-                    id="fileInput"
-                    onChange={handleFileChange}
-                    accept="image/*"
-                />
-            </div>
 
-            <div className='right-column'>
-                <h3 id="quoteHeader" style={{ color: 'white' }}>Quote</h3>
-                <textarea className="input-quote" placeholder="Enter quote. . ."></textarea>
-                <button>
-                    Submit
-                </button>
+    return (
+        <html className="submit-page">
+            <div className='submit-column-container'>
+        {/* ___________________________________________________________________________________________________________________ */}
+
+                <div className='submit-left-column'>
+                    {previewUrl && (
+                        <div>
+                            <h3>Image:</h3>
+                            {file?.type.startsWith("image/") ? (
+                                <img src={previewUrl} alt="Uploaded" style={{ maxWidth: "100%" }} />
+                            ) : (
+                                <p>File uploaded: {file?.name}</p>
+                            )}
+                        </div>
+                    )}
+                    <input
+                        type="file"
+                        id="fileInput"
+                        onChange={handleFileChange}
+                        accept="image/*"
+                    />
+                </div>
+        {/* ___________________________________________________________________________________________________________________ */}
+                <div className='submit-right-column'>
+                    <h3 id="quoteHeader" style={{ color: 'white' }}>Quote</h3>
+                    <textarea className="input-quote" placeholder="Enter quote. . ."></textarea>
+                    <button>
+                        Submit
+                    </button>
+                </div>
+        {/* ___________________________________________________________________________________________________________________ */}
             </div>
-        </div>
+        </html>
     )
 }
 
