@@ -3,9 +3,7 @@ import "./QuoteDisplay.css";
 
 const QuoteDisplay: React.FC = () => {
     return (
-        <html className="quote-page">
-            <body className="QuoteDisplay">
-                <div className='quote-container'>
+        <div className='quote-container'>
                     <div className='quote-left-column' >
                         <pre id="quote">
                             Quote text for display  <br></br>
@@ -24,8 +22,6 @@ const QuoteDisplay: React.FC = () => {
 
                     </div>
                 </div>
-            </body>
-        </html>
     );
 }
 

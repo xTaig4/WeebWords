@@ -32,7 +32,7 @@
     font-style: normal;
     margin-bottom: 20px;
 
-    color: white;
+    color: var(--text-color);
     max-width: 600px;
     height: auto;
 
@@ -43,8 +43,8 @@
 
 .random-button {
     font-size: 1em;
-    color: #000000;
-    background-color: #e9f4ff;
+    color: var(--text-color);
+    background: var(--container-color);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -60,6 +60,7 @@
     max-width: 600px; /*Scales the image down to fit within the container */
     max-height: 600px; /* Ensures the image doesn’t overflow the container vertically */
 }
+
 
 #myImg {
     height: 80%;
