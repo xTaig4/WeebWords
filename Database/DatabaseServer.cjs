@@ -76,6 +76,26 @@ app.get("/api/quotes", (req, res) => {
     });
 });
 
+
+// Fetch a random quote
+app.get("/api/quotes/random", (req, res) => {
+    db.get("SELECT COUNT(*) AS count FROM quotes", (err, row) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        const count = row.count;
+        const randomOffset = Math.floor(Math.random() * count);
+        db.get("SELECT * FROM quotes LIMIT 1 OFFSET ?", [randomOffset], (err, row) => {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+            res.json(row);
+        });
+    });
+});
+
+
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
