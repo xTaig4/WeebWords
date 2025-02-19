@@ -1,21 +1,23 @@
 /* Root variables for themes and colors */
 :root {
     --primary-color: #ff6f61;
-    /* Default: Soft pink */
     --background: #ffffff;
-    --text-color: #333333;
+    --container-color:#dbdbdb;
+    --text-color: #6b6b6b;
 }
 
 [data-theme="dark"] {
     --primary-color: #ffffff;
-    --background: #222;
+    --background: #383838;
+    --container-color:#5a5a5a;
     --text-color: #ffffff;
 }
 
 [data-theme="pink"] {
     --primary-color: #222;
-    --background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    --text-color: #332a2a;
+    --background: #eee7e1;
+    --container-color: #ff9a9e;
+    --text-color: #3b5661;  
 }
 
 
@@ -28,7 +30,7 @@
     width: 200px;
     margin: 60px auto;
     padding: 20px;
-    background: var(--background);
+    background: var(--container-color);
     color: var(--text-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,7 +41,6 @@
     color: var(--primary-color);
 }
 
-/* Setting options */
 .setting-option {
     margin-bottom: 15px;
 }
