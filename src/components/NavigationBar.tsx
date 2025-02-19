@@ -6,7 +6,7 @@ const NavigationBar: React.FC = () => {
     return (
         <div className="navigation-bar">
             <div className="navigation-logo">
-                <h1>MyApp</h1>
+                <h1>Weeb Words</h1>
             </div>
             <div className="navigation-links">
                 {/* Replace Link with <a> if you're not using React Router */}
