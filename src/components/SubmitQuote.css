@@ -13,10 +13,10 @@
 
 .submit-left-column {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     display: flex;
-    flex-direction: column;
 
     min-width: 250px;
     max-width: 500px;
@@ -27,32 +27,73 @@
 .submit-right-column {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
 
     min-width: 250px;
-    max-width: 600px;
+    max-width: 650px;
     padding: 20px;
     border-radius: 25px;
+    gap: 10px;
+}
+
+.anime-title-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-anime{
+    height: 25px;
+    border-radius: 10px;
+    padding-left: 7px;
+}
+
+.name-column{
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
-.input-quote {
-    text-align: left;
-    /* Aligns text to the left */
-    vertical-align: top;
-    /* Ensures text starts from the top */
+.firstName{
+    display: flex;
+    height: 25px;
+    width: 120px;
+    padding-left: 7px;
+    border-radius: 10px;
+    resize: none;
+    font-family: inherit;
+}
 
-    min-width: 200px;
-    width: 85%;
+.lastName{
+    display: flex;
+    height: 25px;
+    max-width: 120px;
+    padding-left: 7px;
+    border-radius: 10px;
+    resize: none;
+    font-family: inherit;
+}
+
+.submit-quote-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    min-height: 0vh;
+    max-width: 300px;
+    
+    gap: 2px;
+}
+
+.input-quote {
+    min-width: 30%;
+    width: 91%;
     height: 170px;
     padding: 12px;
 
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    /* background-color: #534747e7; */
+    background: #fff;
     border-radius: 15px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: inherit;
+    resize: none;
 }
 
 button {
@@ -62,6 +103,11 @@ button {
     border-radius: 15px;
 }
 
+label{
+    color: var(--text-color);
+    font-family: inherit;
+    
+}
 /* img {
     border-radius: 15px;
 } */
