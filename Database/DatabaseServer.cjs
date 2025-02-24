@@ -29,7 +29,7 @@ app.use(cors());  // Allow frontend to communicate with backend
 const storage = multer.diskStorage({
     destination: './uploads/',
     filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${file.originalname}`);
+        cb(null, `${file.originalname}-${Date.now()}`);
     }
 });
 
