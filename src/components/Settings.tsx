@@ -22,7 +22,7 @@ const Settings: React.FC = () => {
 
     return (
         <div className="settings-container">
-            <h2>Settings</h2>
+            <h2><img src="Settings.svg"/>Settings</h2>
             <div className="setting-option">
                 <label>Theme:</label>
                 <select

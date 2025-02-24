@@ -5,6 +5,7 @@ import NavigationBar from "./components/NavigationBar"
 import QuoteDisplay from './components/QuoteDisplay';
 import SubmitQuote from './components/SubmitQuote';
 import Settings from './components/Settings';
+import Sidebar from './components/Sidebar';
 import './index.css';
 
 const root = ReactDom.createRoot(document.getElementById("root")!);
@@ -14,7 +15,8 @@ root.render(
         <React.StrictMode>
             <title>The Honered One</title>
             <Router>   
-                <NavigationBar />
+                {/* <NavigationBar /> */}
+                <Sidebar />
                 <div>
                     <Routes>
                         <Route path="/" element={<QuoteDisplay />} />

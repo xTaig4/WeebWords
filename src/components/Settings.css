@@ -23,11 +23,8 @@
 
 /* Settings container */
 .settings-container {
-    position: fixed;
-    top: 5px;
-    left: 5px;
-    height: 85vh;
-    width: 200px;
+    height: 30vh;
+    width: 35vh;
     margin: 60px auto;
     padding: 20px;
     background: var(--container-color);
